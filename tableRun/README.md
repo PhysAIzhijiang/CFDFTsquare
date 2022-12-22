@@ -1,11 +1,11 @@
 
 # This file is under public domain.
 
-##Dependences
+## Dependences
 Require Intel(r) MKL and intel C++ compiler to compile.
 The program uses armadillo library, http://arma.sourceforge.net, for convenience.
 
-##Files
+## Files
 
 commoninclude.hpp        Header files and basic variable types.
 
@@ -38,6 +38,6 @@ tools.hpp		 Tools for c++ programming.
 type.hpp		 Tools for c++ types.
 
 
-##Tips
+## Tips
 The armadillo library can be built & installed locally with `make arma`. Remember to remove the arma folder before doing so to ensure a fresh make.
 Then `make cfdft` compiles the program, according to parameters in "syspara.hpp", etc.
