@@ -1,8 +1,9 @@
 # This file is under public domain.
 
 MKLROOT?=/opt/intel/mkl
-IMPIROOT=/opt/intel/compilers_and_libraries/linux/mpi/intel64
-OpenMPIROOT=/usr/lib/x86_64-linux-gnu/openmpi
+I_MPI_ROOT?=/opt/intel/oneapi/mpi/2021.6.0
+IMPIROOT=${I_MPI_ROOT}
+#OpenMPIROOT=/usr/lib/x86_64-linux-gnu/openmpi
 ARMA_DIR?=${PWD}/arma
 CPLUS_INCLUDE_PATH?=/usr/include/x86_64-linux-gnu/c++/8 # adhoc fix on some linux machines for icc problems
 # slepc variables
@@ -12,7 +13,9 @@ SLEPC_DIR=/usr/lib/slepcdir/3.7.3/x86_64-linux-gnu-complex
 # slepc compiler & linker options
 SLEPC_LINKOPT= -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_blacs_openmpi_lp64.a -Wl,--end-group -lpthread -lm -ldl
 GCC_SLEPC_LINKOPT= -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lpthread -lm -ldl
-SLEPC_CCOPT=-I${MKLROOT}/include -I${PETSC_DIR}/include -I${SLEPC_DIR}/include -I${OpenMPIROOT}/include
+SLEPC_CCOPT=-I${MKLROOT}/include -I${PETSC_DIR}/include -I${SLEPC_DIR}/include -I/usr/include/openmpi-x86_64
+
+#-I${OpenMPIROOT}/include  :OpenMPIROOT这个变量由于CentOS和debian(这个makefile文件是针对debian系统写的)的文件位置不同，建议直接将“-I${OpenMPIROOT}/include” 替换为“-I/usr/include/openmpi-x86_64”
 
 
 # mkl compiler and linker options
