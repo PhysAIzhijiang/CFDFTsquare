@@ -5,7 +5,7 @@ I_MPI_ROOT?=/opt/intel/oneapi/mpi/2021.6.0
 IMPIROOT=${I_MPI_ROOT}
 #OpenMPIROOT=/usr/lib/x86_64-linux-gnu/openmpi
 ARMA_DIR?=${PWD}/arma
-CPLUS_INCLUDE_PATH?=/usr/include/x86_64-linux-gnu/c++/8 # adhoc fix on some linux machines for icc problems
+CPLUS_INCLUDE_PATH?=/usr/include/c++/4.8.5/ #/usr/include/x86_64-linux-gnu/c++/8 # adhoc fix on some linux machines for icc problems
 # slepc variables
 PETSC_DIR=/usr/lib/petscdir/3.7.5/x86_64-linux-gnu-complex
 SLEPC_DIR=/usr/lib/slepcdir/3.7.3/x86_64-linux-gnu-complex
